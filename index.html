@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your BMI</title>
+    <style>
+
+body{
+         background-color: beige;
+            text-align: center;
+            font-family:  sans-serif;}
+    </style>
+    
+</head>
+<body>
+  
+    <h1> BMI calculator</h1>
+   <section>
+<input type="number"id="weight" placeholder="Your weight(kg)">
+<input type="number"id="length" placeholder= "Your length(m)">
+<button onclick="show()"> click</button>
+<button onclick="clearall()">delete</button>
+ <h2 id="answer"></h2>
+ </section>
+<script>
+   function show(){
+    let weight=document.getElementById("weight").value;
+    let length=document.getElementById("length").value;
+    if(weight>0&&length>0){
+        let BMI=(weight/(length*length)).toFixed(1);
+        if(BMI<18.5){
+            document.getElementById("answer").textContent=" Your BMI:"+ BMI+" (Underweight)";}
+            else if(BMI<25){         
+document.getElementById("answer").textContent=" Your BMI:"+ BMI+" (Normalweight)";
+            }
+            else if (BMI<30){
+                document.getElementById("answer").textContent=" Your BMI:"+ BMI+" (Overweight)";
+            }
+            else {
+                 document.getElementById("answer").textContent="Your BMI: "+ BMI+" (Obese)";
+            }
+
+            
+    }
+            else{
+                alert(" wrong inputs");
+
+            }
+    
+        }
+function clearall(){
+    
+document.getElementById("weight").value="";
+document.getElementById("length").value="";
+ document.getElementById("answer").textContent="";
+}
+
+</script>
+
+</body>
+</html>
